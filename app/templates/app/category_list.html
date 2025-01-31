@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% block title %}Category List{% endblock title %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/categories.css' %}">
+<h1> List Of Category</h1>
+<br>
+<button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;">
+    <a href="{% url 'category_create' %}" class="button">Add Category</a></button>
+<br><br>
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Viewing Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in object_list %}
+        <tr>
+            <td>{{ category.name }}</td>
+            <td>{{ category.description }}</td>
+            <td>
+                <button> <a href="{% url 'category_detail' category.pk %}">View</a> </button >
+                    <button ><a href="{% url 'category_update' category.pk %}">Update</a> </button >
+                        <button > <a href="{% url 'category_delete' category.pk %}">Delete</a></button >
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

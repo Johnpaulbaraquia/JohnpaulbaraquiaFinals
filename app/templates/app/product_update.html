@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% block title %}Edit Product{% endblock title %}
+{% block content %}
+{% load static %}
+        <h1>Edit Product</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+        <a href="{% url 'product_list' %}">Back to Product List</a>
+{% endblock content %}

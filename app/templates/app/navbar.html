@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">JP's Bags Store</label>
+    
+    <ul>
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'order' %}">Order</a></li>
+        <li><a href="{% url 'customer_list' %}">Customer</a></li>
+            <li><a href="{% url 'category_list' %}">Categories</a></li>
+                <li><a href="{% url 'product_list' %}">Product</a></li>
+                    <li><a href="{% url 'orderdetail_list' %}">OrderDetail</a></li>
+                    <li><a href="{% url 'orderdetail_list' %}">OrderDetail</a></li>
+                    <li>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit">Log Out</button>
+                        </form>
+                    </li> 
+    </ul>
+
+
+</header>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% block title %}Delete Order Detail{% endblock title %}
+{% block content %}
+{% load static %}
+<h1>Delete Order Detail</h1>
+<p>Are you sure you want to delete this order detail?</p>
+<p><strong>Order:</strong> <a href="{% url 'order_detail' orderdetail.order.pk %}">Order #{{ orderdetail.order.id }}</a></p>
+<p><strong>Product:</strong> {{ orderdetail.product.name }}</p>
+<p><strong>Quantity:</strong> {{ orderdetail.quantity }}</p>
+<p><strong>Price:</strong> ₱{{ orderdetail.price }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete</button>
+</form>
+<a href="{% url 'orderdetail_list' %}">Cancel</a>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<html>
+<head>
+    <title>Create Order</title>
+</head>
+<body><div class ="Create">
+    <h1>Create a New Order</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+{% endblock content %}

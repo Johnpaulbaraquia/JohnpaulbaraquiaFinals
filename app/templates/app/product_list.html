@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% block title %}Product List{% endblock title %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<h1> List Of Product</h1>
+<button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;"> 
+    <a href="{% url 'product_create' %}" class="button">Product Add</a></button>
+    <br><br>
+<table>
+    <thead>
+        <tr>
+            <th>Name Of Bags</th><th>Bags Description</th><th>Prices</th><th>Stocks</th><th>Updating</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in object_list %}
+        <tr>
+            <td>{{ product.name }}</td>
+                <td>{{ product.description|default:"No description available" }}</td>
+                    <td>₱{{ product.price }}</td>
+                        <td>{{ product.stock }}</td>
+            <td>
+                <button><a href="{% url 'product_detail' product.pk %}">View</a> </button>
+                    <button> <a href="{% url 'product_update' product.pk %}">Edit</a> </button>
+                        <button><a href="{% url 'product_delete' product.pk %}">Delete</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

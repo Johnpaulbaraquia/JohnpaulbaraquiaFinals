@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+  
+    <h1>Customer Details</h1>
+        {% for product in products %}
+        <p><strong>Customer:</strong> {{ order.customer }}</p>
+        <p><strong>Date:</strong> {{ order.order_date }}</p>
+        <p><strong>Product:</strong> {{ product.name }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        {% empty %}
+        <li>No products.</li>
+        {% endfor %}
+        
+        <h2>Products</h2>
+        <ul>
+            {% for product in products %}
+                <li ><strong>Price:</strong>{{ product.name }}- ₱{{ product.price }}</li>
+                
+            {% empty %}
+                <li>No products associated with this order.</li>
+            {% endfor %}
+        </ul>
+       </div>
+       
+       {% if order.pk %}
+       <a href="{% url 'order_update' order.pk %}">+ Edit order</a>
+       <a href="{% url 'order_delete' order.pk %}">- Delete order</a>
+        {% else %}
+           
+        {% endif %}
+
+{% endblock content %}

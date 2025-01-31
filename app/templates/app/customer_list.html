@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer List{% endblock title %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/customer.css' %}">
+<h1>List Of Customer </h1>
+<button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;"> <a href="{% url 'customer_create' %}" class="button"> Add Customer</a></button >
+    <br><br>
+<div class = "customerdetails">
+<table>
+    <thead>
+        <tr>
+            <th>Name of Customer</th><th>Email Of Customer</th><th>Phone</th><th>Address</th><th>Changing</th>  
+        </tr>
+    </thead>
+
+    <div class = "conatainer">
+    <tbody>
+        {% for customer in object_list %}
+        <tr>
+            <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone_number }}</td>
+            <td>{{ customer.address}}</td>
+            <td>
+            </div>
+               
+        <button ><a href="{% url 'customer_update' customer.pk %}">Update</a> </button >
+            <button > <a href="{% url 'customer_delete' customer.pk %}">Delete</a></button >
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</div>
+</table>
+</div>
+{% endblock content %}
+
+
+

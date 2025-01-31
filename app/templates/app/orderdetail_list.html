@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% block title %}Order Detail List{% endblock title %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/orderdetail.css' %}">
+<h1>Order Detail List</h1>
+   <button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;">
+    <a href="{% url 'orderdetail_create' %}" class="button"> Add Details</a></button>
+    <br><br>
+<table>
+    <thead>
+        <center>
+        <tr>
+            <th>Order</th><th>Product</th><th>Quantity</th><th>Price</th><th>Updating</th>
+        </tr>
+    </center>
+    </thead>
+    <tbody>
+        {% for orderdetail in object_list %}
+        <tr>
+            <td><a href="{% url 'order_detail' orderdetail.order.pk %}">Order {{ orderdetail.order.id }}</a></td>
+                <td>{{ orderdetail.product.name }}</td>
+                    <td>{{ orderdetail.quantity }}</td>
+                        <td>₱{{ orderdetail.price }}</td>
+            <td>
+                <button><a href="{% url 'orderdetail_detail' orderdetail.pk %}">View</a> </button>
+                    <button><a href="{% url 'orderdetail_update' orderdetail.pk %}">Edit</a> </button>
+                         <button><a href="{% url 'orderdetail_delete' orderdetail.pk %}">Delete</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

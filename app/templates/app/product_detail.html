@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% block title %}Product Detail{% endblock title %}
+{% block content %}
+{% load static %}
+<h1>Product: {{ product.name }}</h1>
+    <p><strong>Description:</strong> {{ product.description|default:"No description available" }}</p>
+    <p><strong>Price:</strong> ₱{{ product.price }}</p>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
+    <p><strong>Created At:</strong> {{ product.created_at }}</p>
+        <button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;"><a href="{% url 'product_update' product.pk %}">Edit</a> </button>
+        <button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;"><a href="{% url 'product_delete' product.pk %}">Delete</a></button>
+        <br>
+        <button style="border:2px solid; background-color:lightblue; padding:10px;border-radius: 5px;"><a href="{% url 'product_list' %}">Back to Product List</a></button>
+{% endblock content %}

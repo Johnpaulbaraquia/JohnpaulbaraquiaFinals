@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% block title %}Order Detail{% endblock title %}
+{% block content %}
+{% load static %}
+<h1>Order Detail</h1>
+<p><strong>Order:</strong> <a href="{% url 'order_detail' orderdetail.order.pk %}">Order #{{ orderdetail.order.id }}</a></p>
+<p><strong>Product:</strong> {{ orderdetail.product.name }}</p>
+<p><strong>Quantity:</strong> {{ orderdetail.quantity }}</p>
+<p><strong>Price:</strong> ₱{{ orderdetail.price }}</p>
+
+
+<a href="{% url 'orderdetail_update' orderdetail.pk %}">Edit</a> |
+<a href="{% url 'orderdetail_delete' orderdetail.pk %}">Delete</a>
+<br>
+<a href="{% url 'orderdetail_list' %}">Back to Order Details</a>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Add Order Detail{% endblock title %}
+{% block content %}
+<h1>Add New Order Detail</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'orderdetail_list' %}">Back to Order Details</a>
+{% endblock content %}

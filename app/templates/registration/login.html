@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAG Shop - Login</title>
+  
+</head>
+<body >
+    <div>
+        {% block content %}
+        <h1>JP's BAG SHOP</h1>
+
+        <h2>Login</h2>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            {{ form.as_p }}<br>
+            <button>Log In</button>
+        </form>
+
+        <p class="text-center mt-4 text-gray-600">
+            Don’t have an account? 
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+        
+        {% endblock content %}
+    </div>
+</body>
+</html>

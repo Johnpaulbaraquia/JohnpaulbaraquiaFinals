@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bag Shop - Sign Up</title>
+</head>
+<body >
+    <div>
+        <div class="text-center">
+            <h1>Create an Account</h1>
+            <p>Join us to access the best Bag deals!</p>
+        </div>
+        <form method="post" class="mt-6 space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="username">Username</label>
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                <small class="text-red-500">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="password1">Password</label>
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                <small class="text-red-500">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div>
+                <label for="password2">Confirm Password</label>
+                {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                <small class="text-red-500">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <button type="submit">
+                Sign Up
+            </button>
+        </form>
+        <p class="text-center mt-4 text-gray-600">
+            Already have an account? 
+            <a href="{% url 'login' %}" >Log In</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(251, 253, 251, 0.474),rgb(58, 57, 56));
+    background-attachment: fixed;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 300;
+    color: black;
+    line-height: 1.5;
+    padding: 35px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+h1{
+    color: black;
+    font-size: 20px;
+    font-family: "Arial Black";
+}
+.logo{
+    width: 300px;
+    padding: 0px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.log{
+    position: relative;
+    margin: 10px 15px 15px 10px;
+    float: left;
+    height: 60px;
+    width: 45px;
+    border-radius:20%;
+
+}
+button,a{
+    text-decoration: none;
+}
+.button{
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+    .order-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .order-table th, .order-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .order-table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .order-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .order-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .order-table a {
+        color: #007BFF;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .order-table a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+}
+.Createnew{
+border-radius: solid;
+padding-left: 20px;
+}
+
+
+
+
